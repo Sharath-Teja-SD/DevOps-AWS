@@ -85,5 +85,9 @@ Press Enter — this logs you out and closes the connection.
 
 ## 🔗 References
 
-- [AWS EC2 Connect Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html)
-- [MobaXterm Official Site](https://mobaxterm.mobatek.net/)
+- [AWS EC2 SSH Connection – Official AWS Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html)
+- [MobaXterm – Official Website](https://mobaxterm.mobatek.net/)
+- 🎥 [YouTube Tutorial: Connect to EC2 Using MobaXterm](https://www.youtube.com/watch?v=MkIRh1mi8Ms&list=PLdpzxOOAlwvIKMhk8WhzN1pYoJ1YU8Csa&index=8)  
+  *by [Abhishek Veeramalla](https://github.com/iam-veeramalla) – DevOps & Cloud Engineer*
+
+
