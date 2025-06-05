@@ -49,6 +49,14 @@ This document summarizes the key steps and configurations used to create an AWS 
 
 ---
 
+## 📸 EC2 Instance Summary Screenshot
+
+Here is a visual summary of the EC2 instance configuration:
+
+![EC2 Test Instance Summary](../images/TEST-Instances-Summary-june-4-25.JPG)
+
+---
+
 ## Notes and Tips
 
 - Use official Ubuntu AMIs to ensure security and stability.
@@ -62,3 +70,5 @@ This document summarizes the key steps and configurations used to create an AWS 
 
 - [AWS EC2 Documentation](https://docs.aws.amazon.com/ec2/)
 - [SSH Access to EC2 Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html)
+- 🎥 [YouTube: EC2 Instance Creation Tutorial](https://www.youtube.com/watch?v=NJkMe9cdYEQ&list=PLdpzxOOAlwvIKMhk8WhzN1pYoJ1YU8Csa&index=5)
+
