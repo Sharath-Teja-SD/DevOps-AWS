@@ -40,7 +40,8 @@ This document explains how to connect to an AWS EC2 instance using MobaXterm and
 
 ### 🖼️ Example SSH Connection Screenshot
 
-![MobaXterm SSH connection](./images/Mobaxterm-ssh-ec2-instances-connection.png.JPG)
+![MobaXterm SSH EC2 Connection](../images/Mobaxterm-ssh-ec2-instances-connection.png.JPG)
+
 
 ---
 
