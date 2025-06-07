@@ -100,7 +100,12 @@ Expected output:
 3. Choose **EC2 Instance Connect**
 4. Click **Connect** (opens in browser)
 
+### 📸 Screenshot: EC2 Instance Connect via Console UI
+  
+![EC2 Connect Using Console UI](screenshots/ec2-connect-using-console-ui.JPG)
+
 ---
+
 
 ## 💻 Connect to EC2 from Windows Terminal
 
