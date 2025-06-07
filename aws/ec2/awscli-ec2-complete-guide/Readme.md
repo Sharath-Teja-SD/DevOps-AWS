@@ -102,7 +102,7 @@ Expected output:
 
 ### 📸 Screenshot: EC2 Instance Connect via Console UI
   
-![EC2 Connect Using Console UI](screenshots/ec2-connect-using-console-ui.JPG)
+![EC2 Connect Using Console UI](screenshots/)
 
 ---
 
