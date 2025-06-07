@@ -180,6 +180,13 @@ chmod 400 your-key.pem
 ```bash
 ssh -i "D:\AWS\keys\TEST01.pem" ubuntu@<your-ec2-public-ip>
 ```
+---
+
+### 📸 Screenshot: Verified AWS Configure & EC2 SSH Connection
+
+Below is a screenshot showing a successful AWS CLI configuration and EC2 SSH login from Windows Terminal:
+
+![Verified AWS Configure and EC2 SSH](screenshots/)
 
 ---
 
