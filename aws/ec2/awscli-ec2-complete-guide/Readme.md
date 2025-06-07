@@ -117,6 +117,63 @@ Expected output:
 icacls "D:\AWS\keys\TEST01.pem" /inheritance:r
 icacls "D:\AWS\keys\TEST01.pem" /grant:r "%username%:R"
 ```
+---
+
+## Manual `.pem` Permission Fix (Windows GUI Method)
+
+If you're using Windows and can't run `chmod 400` (which is for Linux/macOS), you can manually set the correct `.pem` file permissions through File Explorer.
+
+This method is required to ensure the `.pem` file is readable only by you — just like how Linux restricts it with `chmod 400`.
+
+---
+
+### Step-by-Step (Windows GUI)
+
+> Example `.pem` file path: `D:\AWS\keys\TEST01.pem`
+
+1. **Locate the `.pem` file** in File Explorer  
+   Navigate to the folder containing your `.pem` key file (e.g., `D:\AWS\keys\TEST01.pem`)
+
+2. **Right-click** on the file → select **Properties**
+
+3. Go to the **Security** tab
+
+4. Click on **Advanced**
+
+5. In the new "Advanced Security Settings" window:
+   - Click **Disable inheritance**
+   - In the prompt that appears, choose:  
+     **Remove all inherited permissions from this object**
+
+6. Now, click **Add**
+
+7. Click **Select a principal**
+
+8. In the box, type **your Windows username**  
+   - Then click **Check Names**  
+   - It should underline or autocomplete — click **OK**
+
+9. On the next screen, **check only** the **Read** permission  
+   - Click **OK**
+
+10. Click **Apply** → **OK** → **OK**  
+    Exit all windows after saving changes
+
+---
+
+### What This Does
+
+These steps ensure:
+
+- No other user/group has access to the `.pem` file
+- Only your Windows user has **read-only** access
+
+This is equivalent to running the following in a Linux/macOS terminal:
+
+```bash
+chmod 400 your-key.pem
+```
+---
 
 4. Connect via SSH:
 
@@ -128,12 +185,17 @@ ssh -i "D:\AWS\keys\TEST01.pem" ubuntu@<your-ec2-public-ip>
 
 ## 🐞 Common Errors & Fixes
 
-| Issue                              | Fix                                                                 |
-|-----------------------------------|----------------------------------------------------------------------|
-| Bad permissions on `.pem` file    | Use `icacls` as shown above                                          |
-| `Permission denied (publickey)`   | Use correct username (e.g., `ubuntu`), and verify `.pem` path/IP     |
-| AWS CLI not recognized            | Restart terminal or add AWS CLI to system PATH                      |
-| `AccessDenied` in CLI commands    | Ensure IAM user permissions are correctly assigned                  |
+| Issue                                          | Fix                                                                                           |
+|-----------------------------------------------|-----------------------------------------------------------------------------------------------|
+| ❌ **Bad permissions on `.pem` file (Windows)** | Use `icacls` to remove inheritance and apply read-only permission:<br>`icacls "D:\AWS\keys\TEST01.pem" /inheritance:r`<br>`icacls "D:\AWS\keys\TEST01.pem" /grant:r "%username%:R"` |
+| 🪟 **Can't use `chmod 400` on Windows**         | Use **GUI method**: Right-click `.pem` → Properties → Security → Advanced → Disable inheritance → Remove all permissions → Add only your user with **Read** permission |
+| ❌ **Permission denied (publickey)**            | Make sure:<br>- You are using the correct SSH username (`ubuntu` for Ubuntu)<br>- `.pem` file is correctly configured and in the correct path<br>- Permissions are set using CLI or GUI method |
+| 🔍 **Wrong or missing `.pem` path**             | Double-check the `.pem` file path in the SSH command — Windows paths need correct escaping and quotes |
+| 🧭 **AWS CLI not recognized in Windows terminal** | Ensure AWS CLI was installed properly. Try reopening the terminal or restart the system if not detected |
+| 🔐 **Configured CLI but unsure if it’s working** | Run `aws sts get-caller-identity` to verify if AWS CLI credentials are active and working |
+| 🌐 **EC2 connection timeout / can't SSH**       | Check if:<br>- The EC2 instance is in **Running** state<br>- Security Group allows **inbound port 22 (SSH)** for your IP address |
+| 📂 **Misplaced `.pem` file**                    | Move your `.pem` file to a known safe path like `D:\AWS\keys\`, then update your SSH command accordingly |
+
 
 ---
 
