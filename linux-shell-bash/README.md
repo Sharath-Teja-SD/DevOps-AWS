@@ -35,6 +35,18 @@ Bash (Bourne Again SHell) is the most popular and widely used shell on Linux sys
 
 ---
 
+
+## 🔍 Difference Between Shell and Bash Scripting
+
+| Feature                | Shell Scripting                        | Bash Scripting                          |
+|------------------------|-------------------------------------|---------------------------------------|
+| Interpreter            | Could be any shell (sh, csh, ksh)   | Specifically Bash shell                |
+| Syntax & Features      | Basic POSIX-compliant shell syntax   | Extended syntax and rich built-ins    |
+| Portability           | More portable across different Unix  | Mostly Linux/Unix systems with Bash   |
+| Use Cases             | Simple scripts, system startup tasks | Complex automation, DevOps pipelines  |
+
+---
+
 ## 📁 Repository Structure
 
 ```bash
