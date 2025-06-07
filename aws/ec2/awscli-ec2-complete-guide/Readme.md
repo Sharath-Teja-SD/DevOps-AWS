@@ -218,16 +218,7 @@ Here are some key screenshots of the process:
 
 ---
 
-## 📁 Suggested Folder Structure
 
-```
-ec2-awscli-complete-guide/
-├── README.md
-├── screenshots/
-│   ├── aws-configure.png
-│   ├── access-secret-keys.png
-│   ├── ec2-ssh-login.png
-```
 
 ---
 
@@ -235,7 +226,7 @@ ec2-awscli-complete-guide/
 
 - [AWS CLI Docs](https://docs.aws.amazon.com/cli/)
 - [EC2 Access Guide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html)
-- 🎥 [YouTube: EC2 + SSH Full Walkthrough](https://www.youtube.com/watch?v=NJkMe9cdYEQ)
+- 🎥 [YouTube: EC2 + SSH Full Walkthrough](https://www.youtube.com/watch?v=cN4pt5KQ9eA&t=799s)
 
 ---
 
