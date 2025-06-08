@@ -318,7 +318,86 @@ Formatted in **Markdown** and presented in a clean table layout.
 | Setuid and Setgid Bits   | Special permission bits that allow executing files with the permissions of the file owner/group.           |
 
 ---
+## 🔐 File Permissions in Linux
 
+Linux uses a permission-based model to control access to files and directories. Each file/directory has permissions assigned to:
+
+- **User (u)**: Owner of the file
+- **Group (g)**: Group to which the file belongs
+- **Others (o)**: All other users
+
+### 🔢 Permission Types & Binary Values
+
+| Symbol | Meaning   | Binary Value | Description         |
+|--------|-----------|--------------|---------------------|
+| `r`    | Read      | 4            | View file contents or list directory |
+| `w`    | Write     | 2            | Modify file contents or directory    |
+| `x`    | Execute   | 1            | Run file as a program or enter directory |
+
+> 🧠 **Formula**: Total permission value is the **sum of enabled permissions**.  
+> Example: `rwx` = 4 + 2 + 1 = **7**
+
+---
+
+### 🧩 Permission Structure Format
+
+Example output from `ls -l`:
+
+---
+### example : -rwxr-xr--
+
+| Position | Description                       |
+|---------:|:----------------------------------|
+| 1st      | File type (`-`, `d`, `l`, etc.)   |
+| 2–4      | Owner permissions (user)          |
+| 5–7      | Group permissions                 |
+| 8–10     | Others’ permissions               |
+
+---
+
+### 🔤 File Type Symbols
+
+| Symbol | File Type         | Description                                               |
+|:------:|:------------------|:----------------------------------------------------------|
+| `-`    | Regular file      | Default file (text, binary, etc.)                         |
+| `d`    | Directory         | A folder                                                  |
+| `l`    | Symbolic link     | Reference to another file/path                            |
+| `b`    | Block device      | Device like hard drives                                   |
+| `c`    | Character device  | Devices like keyboard, mouse                              |
+| `p`    | Named pipe (FIFO) | For inter-process communication                           |
+| `s`    | Socket            | For network or local IPC                                  |
+
+---
+
+### 🎛️ Setting Permissions: `chmod` Examples
+
+| Command              | Applies Permissions      | Resulting Mode | Description                                                                 |
+|----------------------|--------------------------|----------------|-----------------------------------------------------------------------------|
+| `chmod 755 file`     | `u=rwx, g=rx, o=rx`      | `rwxr-xr-x`    | Owner has full control, others can read and execute                        |
+| `chmod u+x file`     | Add execute to owner     | Owner gets `x` | Useful for making scripts or apps executable                                |
+| `chmod g-w file`     | Remove write from group  | Group loses `w`| Prevent group members from modifying the file                                |
+| `chmod o=r file`     | Set others to read-only  | `o=r` only     | Others can only read the file or list the directory                         |
+
+---
+
+
+## 🧼 File Deletion Flags with `rm`
+
+| Flag | Description                                                                 |
+|:----:|:----------------------------------------------------------------------------|
+| `-r` | Recursive: Deletes directories and their contents                           |
+| `-f` | Force: Ignore nonexistent files; suppress confirmation prompts               |
+| `-i` | Interactive: Confirm each deletion                                          |
+| `-v` | Verbose: Display files being removed                                        |
+| `-p` | Remove directory if empty (usually with `rmdir`)                             |
+
+### 💡 Examples
+
+```bash
+rm -rf myfolder/       # 🔥 Forcefully and recursively delete 'myfolder'
+rm -i important.txt    # ❓ Prompt before deleting important.txt
+rm -v file.txt         # 🧾 Show each removed file name
+```
 ### ⚠️ Tips for Beginners
 
 - Use `ls -l` to check file permissions before making changes.  
