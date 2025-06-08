@@ -35,15 +35,55 @@ It is widely used in servers, cloud platforms (like AWS, Azure, GCP), embedded s
 
 ## 📁 3. Linux Filesystem Hierarchy
 
-| Directory | Purpose                              |
-|----------|---------------------------------------|
-| `/`      | Root directory (top of the hierarchy) |
-| `/home`  | User home directories                 |
-| `/etc`   | Configuration files                   |
-| `/var`   | Logs and variable data                |
-| `/bin`   | Essential user commands               |
-| `/usr`   | User-installed applications           |
-| `/tmp`   | Temporary files                       |
+```
+/ # Root directory (everything starts here)
+├── bin/ # Essential binary commands (e.g., ls, cp)
+├── boot/ # Boot loader files (kernel, initrd, GRUB)
+├── dev/ # Device files (e.g., /dev/sda, /dev/tty)
+├── etc/ # System-wide config files
+├── home/ # User home directories (e.g., /home/user)
+│ ├── user1/ # User1's personal files
+│ └── user2/ # User2's personal files
+├── lib/ # Essential shared libraries for /bin and /sbin
+├── media/ # Mount point for removable media (USB, CD)
+│ ├── usb/ # USB device mount
+│ └── cdrom/ # CD-ROM mount
+├── mnt/ # Temporary mount point (e.g., test mounts)
+├── opt/ # Optional software from vendors (add-ons)
+├── proc/ # Virtual filesystem (process & kernel info)
+│ └── 1234/ # Process-specific folder (PID = 1234)
+├── root/ # Home directory for root user
+├── run/ # Runtime variable data (e.g., PID files)
+├── sbin/ # System binaries (admin tools like shutdown)
+├── srv/ # Data for services like FTP, HTTP
+├── sys/ # Kernel and hardware information (virtual)
+├── tmp/ # Temporary files (auto-cleared on reboot)
+├── usr/ # User programs, libraries, docs
+│ ├── bin/ # Non-essential binaries for users
+│ ├── lib/ # Non-essential libraries
+│ ├── share/ # Shared read-only data
+│ └── local/ # Locally installed user software
+└── var/ # Variable data (logs, mail, print spool)
+├── log/ # System logs
+├── mail/ # Email inboxes
+└── cache/ # Cached files
+```
+
+### ✅ Notes:
+
+- **Critical for Booting**:  
+  Folders like `/bin`, `/sbin`, `/lib`, and `/etc` are **essential for system booting**.
+
+- **Virtual Filesystems**:  
+  Directories like `/proc`, `/sys`, and `/dev` **do not store real data**.  
+  They provide **virtual interfaces to the kernel and devices**.
+
+- **Userland**:  
+  Most user activities and installed applications live under `/home`, `/usr`, and `/opt`.
+
+- **Writable Directories**:  
+  Data that changes frequently (logs, temp files, runtime data) goes into:  
+  `/var`, `/tmp`, and `/run`.
 
 ---
 
