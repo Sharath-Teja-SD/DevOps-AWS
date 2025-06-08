@@ -109,6 +109,7 @@ Formatted in **Markdown** and presented in a clean **table layout**.
 | **Run**                | `/run`           | Stores runtime data (PID files, sockets).                                                  |
 | **Swap Space**         | [not a folder]   | Swap space used as virtual memory, not a directory.                                        |
 
+
 ---
 
 ### 🧠 Key Concepts
@@ -327,10 +328,267 @@ Formatted in **Markdown** and presented in a clean table layout.
 - Understand the security implications of Setuid and Setgid bits before using them.  
 
 ---
+### 📦 6. Package Management
 
-Let me know if you'd like example commands, visual permission charts, or practice exercises for this topic!
+Formatted in **Markdown** and presented in a clean table layout.
 
+---
 
+### 📦 Package Management Commands
+
+| Operation / Name              | Command(s)                          | Purpose / Description                                                                                     |
+|------------------------------|-------------------------------------|------------------------------------------------------------------------------------------------------------|
+| Update Package Index         | `sudo apt update`                   | Updates the list of available packages and versions (Debian-based systems like Ubuntu).                   |
+| Upgrade Installed Packages   | `sudo apt upgrade`                  | Installs available updates for all packages currently installed.                                          |
+| Install a Package            | `sudo apt install <package>`        | Installs a new package from the repository.                                                               |
+| Remove a Package             | `sudo apt remove <package>`         | Removes the package but keeps configuration files.                                                        |
+| Purge a Package              | `sudo apt purge <package>`          | Removes the package **and** its configuration files.                                                      |
+| Search for a Package         | `apt search <keyword>`              | Searches for packages in the repository using a keyword.                                                  |
+| Show Package Info            | `apt show <package>`                | Displays detailed information about the package.                                                          |
+| List Installed Packages      | `dpkg -l`                           | Lists all installed packages on the system.                                                               |
+| Check Specific Package       | `dpkg -s <package>`                 | Shows the status and details of an installed package.                                                     |
+| Install .deb File Locally    | `sudo dpkg -i <file>.deb`           | Installs a `.deb` file manually.                                                                          |
+| Fix Broken Installs          | `sudo apt --fix-broken install`     | Resolves dependency or broken package issues.                                                             |
+| Remove Orphaned Packages     | `sudo apt autoremove`               | Removes unused packages that were installed automatically.                                                |
+| Clean Package Cache          | `sudo apt clean`                    | Clears out the local repository of retrieved package files.                                               |
+| Update All (Red Hat Based)   | `sudo yum update` or `sudo dnf update` | Updates all packages on Red Hat/CentOS/Fedora systems.                                                 |
+| Install (Red Hat Based)      | `sudo yum install <package>`        | Installs a package (older systems).                                                                       |
+| Install (Modern RHEL/Fedora) | `sudo dnf install <package>`        | Installs a package (newer systems).                                                                       |
+| Remove (Red Hat Based)       | `sudo yum remove <package>`         | Removes a package in RHEL/CentOS/Fedora.                                                                  |
+| Query Installed RPM          | `rpm -qa`                           | Lists all installed `.rpm` packages.                                                                      |
+| Info About an RPM Package    | `rpm -qi <package>`                 | Displays info about a particular RPM package.                                                             |
+| Install via Snap             | `sudo snap install <package>`       | Installs snap packages (universal Linux packages).                                                        |
+| List Snap Packages           | `snap list`                         | Lists installed snap packages.                                                                            |
+
+---
+
+### 🧠 Key Concepts
+
+| Concept                    | Description                                                                 |
+|----------------------------|-----------------------------------------------------------------------------|
+| APT                        | Advanced Package Tool for Debian-based systems like Ubuntu.                 |
+| DPKG                       | Low-level package manager backend used by APT.                              |
+| YUM / DNF                  | RPM-based package managers for Red Hat, CentOS, Fedora systems.             |
+| Snap                      | Universal package system that includes all dependencies; sandboxed.         |
+| `.deb` vs `.rpm`           | `.deb` used by Debian/Ubuntu; `.rpm` used by Red Hat/Fedora.                |
+| `apt` vs `apt-get`         | `apt` is more user-friendly and newer than `apt-get`, though both still work.|
+| Autoremove                 | Helps clean unused packages that are no longer required.                    |
+
+---
+
+### ⚠️ Tips for Beginners
+
+- Always run `sudo apt update` before installing new packages.  
+- Use `apt show <package>` to review what a package does before installing.  
+- Use `apt list --installed` to get a quick list of installed packages.  
+- Use `dpkg -L <package>` to list files installed by a package.  
+- Use Snap for latest or universal versions when not available via APT.
+
+---
+
+### 🌐 7. Networking Commands
+
+Formatted in **Markdown** and presented in a clean table layout.
+
+---
+
+### 🌐 Networking Commands
+
+| Operation / Name                  | Command(s)                              | Purpose / Description                                                                 |
+|----------------------------------|-----------------------------------------|----------------------------------------------------------------------------------------|
+| Check Network Connectivity       | `ping <host>`                           | Sends ICMP packets to check if a host is reachable (e.g., `ping google.com`).          |
+| Display Network Interfaces       | `ifconfig` / `ip a`                     | Shows IP addresses and network interfaces (`ifconfig` is older, `ip` is modern).       |
+| View Routing Table               | `route -n` / `ip route`                 | Displays the system’s routing table.                                                   |
+| Check DNS Resolution             | `nslookup <domain>` / `dig <domain>`    | Queries DNS for resolving domain names into IP addresses.                              |
+| Test Ports / Network Connection  | `telnet <host> <port>` / `nc <host> <port>` | Checks if a port is open on a remote host.                                       |
+| Download from Web                | `wget <URL>` / `curl <URL>`             | Retrieves files or data from the internet using HTTP/FTP protocols.                    |
+| View Active Connections          | `netstat -tulnp` / `ss -tuln`           | Lists all active TCP/UDP ports and processes using them.                               |
+| Monitor Traffic Per Interface    | `iftop` / `nload`                       | Real-time bandwidth monitoring per network interface (requires installation).           |
+| Trace Route to Host              | `traceroute <host>` / `tracepath <host>`| Displays the path packets take to reach a destination.                                 |
+| Find Local IP                    | `hostname -I`                           | Shows the system's local IP address.                                                   |
+| Show Hostname                    | `hostname`                              | Prints the system's hostname.                                                          |
+| Flush DNS Cache (Linux)          | `sudo systemd-resolve --flush-caches`   | Clears DNS resolver cache (on `systemd` systems).                                      |
+
+---
+
+### 🧠 Key Concepts
+
+| Concept              | Description                                                                 |
+|----------------------|-----------------------------------------------------------------------------|
+| **ICMP**             | Internet Control Message Protocol used by `ping` for testing connectivity.  |
+| **DNS**              | Domain Name System resolves human-readable domains into IP addresses.       |
+| **Routing Table**    | Defines paths for network traffic between networks.                         |
+| **TCP vs UDP**       | TCP is connection-oriented; UDP is faster and connectionless.               |
+| **Ports**            | Virtual endpoints used to manage multiple services on the same machine.     |
+| **Public vs Private IP** | Public IP is internet-facing; private IP is internal to a local network.     |
+| **Firewall**         | Controls incoming/outgoing network traffic; may block ports or addresses.   |
+
+---
+
+### ⚠️ Tips for Beginners
+
+- Use `ip a` instead of `ifconfig` on modern systems (`ifconfig` may not be installed by default).
+- `ss` is a faster and more modern alternative to `netstat`.
+- Use `ping -c 4 google.com` to send only 4 pings instead of an infinite loop.
+- `wget` is useful for downloading full files; `curl` is better for quick API tests.
+- Use `traceroute` to troubleshoot slow or unreachable websites by viewing packet hops.
+- Ports <1024 are privileged; most common services use these (e.g., 80 for HTTP, 443 for HTTPS).
+
+---
+
+### 🧮 8. Process & System Monitoring
+
+Formatted in **Markdown** and presented in a clean **table layout**.
+
+---
+
+### 🧮 Process & System Monitoring Commands
+
+| Operation / Name                 | Command(s)                          | Purpose / Description                                                                 |
+|----------------------------------|-------------------------------------|----------------------------------------------------------------------------------------|
+| Real-Time Process Viewer         | `top`                               | Displays real-time list of running processes, CPU/memory usage, and system load.       |
+| Enhanced Process Viewer          | `htop`                              | Advanced `top` with color interface and easy navigation (requires install).            |
+| View Running Processes           | `ps aux`                            | Lists all current processes with details like PID, user, CPU/mem usage.                |
+| Kill a Process                   | `kill <PID>`                        | Sends termination signal to process with given PID.                                    |
+| Force Kill a Process             | `kill -9 <PID>`                     | Forcefully terminates a process.                                                       |
+| Niceness (set priority)          | `nice -n <value> <command>`         | Runs a command with defined CPU priority (lower = higher priority).                    |
+| Change Running Process Priority  | `renice <priority> -p <PID>`        | Alters priority of an existing running process.                                        |
+| System Uptime                    | `uptime`                            | Shows how long the system has been running, load average.                              |
+| Users Currently Logged In        | `who`                               | Displays users currently logged into the system.                                       |
+| Memory Usage                     | `free -h`                           | Shows free, used, and total memory in human-readable format.                           |
+| Disk Usage                       | `df -h`                             | Displays mounted disk partitions and their usage.                                      |
+| Disk Usage by Directory          | `du -sh <directory>`                | Displays size of specific directory (summary, human-readable).                         |
+| CPU Info                         | `lscpu`                             | Displays detailed info about the CPU architecture.                                     |
+| RAM Info                         | `cat /proc/meminfo`                 | Shows detailed memory statistics.                                                      |
+| List Top Memory Consumers        | `ps aux --sort=-%mem | head`       | Displays top memory-consuming processes.                                               |
+| List Top CPU Consumers           | `ps aux --sort=-%cpu | head`       | Displays top CPU-consuming processes.                                                  |
+
+---
+
+### 🧠 Key Concepts
+
+| Concept           | Description                                                                 |
+|-------------------|-----------------------------------------------------------------------------|
+| **PID**           | Process ID – a unique number assigned to each process.                      |
+| **Nice Value**    | Determines CPU priority (range: -20 to 19). Lower = higher priority.         |
+| **Load Average**  | Indicates system load over 1, 5, and 15 minutes. Values near CPU count are ideal. |
+| **Zombie Process**| A process that has completed execution but still has an entry in the process table. |
+| **Swap Memory**   | Disk space used as overflow for RAM – slower than physical memory.          |
+| **Foreground / Background Process** | Foreground runs in terminal; background (`&`) allows multitasking.       |
+
+---
+
+### ⚠️ Tips for Beginners
+
+- Press `q` to quit `top`, `htop`, `less`, or `more`.
+- Use `htop` to kill processes interactively (arrow keys + F9).
+- Combine commands: `ps aux | grep nginx` to filter processes by name.
+- Use `df -hT` for human-readable disk usage with filesystem type.
+- Always monitor system load before performing heavy tasks.
+- Use `watch -n 2 <command>` to auto-refresh command every 2 seconds.
+
+---
+
+### 🧹 9. Disk & File Management
+
+Formatted in **Markdown** and presented in a clean **table layout**.
+
+---
+
+### 🧹 Disk & File Management Commands
+
+| Operation / Name                  | Command(s)                             | Purpose / Description                                                                 |
+|----------------------------------|----------------------------------------|----------------------------------------------------------------------------------------|
+| Check Disk Space Usage           | `df -h`                                | Shows disk space usage of mounted partitions in human-readable format.                |
+| Show File/Directory Sizes        | `du -sh <path>`                        | Displays the total size of a file or directory. `-s` = summary, `-h` = human-readable.|
+| Show Size of All Subfolders      | `du -sh *`                             | Lists size of each item in the current directory.                                     |
+| Show File System Type            | `df -T`                                | Displays file system type of mounted partitions.                                      |
+| View Block Devices               | `lsblk`                                | Lists block devices (disks and partitions). Shows mount points.                       |
+| View Disk Partitions             | `fdisk -l`                             | Lists all available partitions and basic disk info (for MBR). Requires `sudo`.        |
+| View Disk UUIDs & FS Types       | `blkid`                                | Lists UUIDs and filesystem types of devices. Useful for `/etc/fstab` config.          |
+| Mount a Drive Manually           | `mount /dev/sdX1 /mnt`                 | Mounts a partition/device at specified directory (e.g., `/mnt`).                      |
+| Unmount a Drive                  | `umount /mnt`                          | Unmounts a mounted drive safely.                                                      |
+| Create New Directory             | `mkdir <directory>`                    | Creates a new directory.                                                              |
+| Delete Empty Directory           | `rmdir <directory>`                    | Deletes empty directories.                                                            |
+| Delete Directory Recursively     | `rm -r <directory>`                    | Deletes a directory and its contents recursively.                                     |
+| View Inodes                      | `df -i`                                | Shows inode usage instead of disk space.                                              |
+| Disk Health Check (SMART)        | `sudo smartctl -a /dev/sdX`            | Displays S.M.A.R.T. health info for hard drives (requires `smartmontools`).           |
+
+---
+
+### 🧠 Key Concepts
+
+| Concept            | Description                                                                 |
+|--------------------|-----------------------------------------------------------------------------|
+| **Mount Point**    | A directory where a partition or device is attached and made accessible.    |
+| **Block Device**   | Refers to storage devices (HDD, SSD, USB) that manage data in blocks.       |
+| **Inodes**         | Metadata structures storing info about files (ownership, size, etc.).       |
+| **File System**    | A way to organize data on disk (ext4, xfs, ntfs, etc.).                     |
+| **Unmounting**     | Required before disconnecting drives to prevent data loss.                  |
+| **/etc/fstab**     | File defining mount points for partitions at boot time.                     |
+
+---
+
+### ⚠️ Tips for Beginners
+
+- Use `df -hT` to view disk usage with filesystem types.
+- Avoid using `rm -rf /` — it will wipe your system completely.
+- Use `du -ah | sort -h | tail` to find largest files/directories.
+- Ensure proper unmounting with `umount` before removing USB devices.
+- `lsblk -f` shows filesystem types and labels.
+
+---
+### 📜 10. Useful Shortcuts & Tricks
+
+Presented in **Markdown table format** for clarity and quick learning.
+
+---
+
+### 📜 Command Shortcuts, Chaining, and Job Control
+
+| Feature / Name              | Command(s) / Syntax                            | Purpose / Description                                                                 |
+|----------------------------|------------------------------------------------|----------------------------------------------------------------------------------------|
+| Define Command Shortcut     | `alias ll='ls -alF'`                           | Creates a shortcut for a long command; persists only for current session unless added to `.bashrc`. |
+| View All Aliases            | `alias`                                       | Lists all currently defined aliases.                                                  |
+| Remove an Alias             | `unalias ll`                                  | Removes a defined alias.                                                              |
+| Run in Background           | `command &`                                    | Executes a command in the background, returning control to the terminal.              |
+| View Background Jobs        | `jobs`                                        | Lists current background jobs.                                                        |
+| Bring Job to Foreground     | `fg %1`                                       | Brings job number 1 to the foreground.                                                |
+| Pause Job (SIGSTOP)         | Press `Ctrl + Z`                              | Pauses current foreground job and moves it to the background in stopped state.        |
+| Resume Background Job       | `bg %1`                                       | Resumes job number 1 in the background.                                               |
+| Sequential Execution        | `command1 ; command2`                         | Runs `command1` and then `command2`, regardless of success or failure.                |
+| Conditional Execution (AND) | `command1 && command2`                        | Runs `command2` only if `command1` succeeds (exit code 0).                            |
+| Conditional Execution (OR)  | `command1 || command2`                        | Runs `command2` only if `command1` fails (non-zero exit code).                        |
+| Command Substitution        | ``echo "Today is: $(date)"``                  | Executes `date` and inserts its output into the command.                             |
+| Repeat Last Command         | `!!`                                          | Repeats the last command.                                                             |
+| Re-run with sudo            | `sudo !!`                                     | Repeats the last command with `sudo`.                                                 |
+| History Search (interactive)| Press `Ctrl + R`                              | Search through command history interactively.                                         |
+| Print Command History       | `history`                                     | Displays your shell command history.                                                  |
+| Clear Screen                | `clear` or `Ctrl + L`                         | Clears the terminal display.                                                          |
+| Auto-correction             | `shopt -s cdspell`                            | Enables automatic spelling correction for directory names.                            |
+
+---
+
+### 🧠 Key Concepts
+
+| Concept           | Description                                                                 |
+|-------------------|-----------------------------------------------------------------------------|
+| **Alias**         | A nickname or shortcut for a longer command. Saves time and avoids typos.   |
+| **Job Control**   | Allows you to suspend/resume jobs running in the shell.                     |
+| **Command Chaining** | Controls command execution flow using `;`, `&&`, and `||`.                 |
+| **Command Substitution** | Runs a command and substitutes its output into another.              |
+| **History**       | The shell stores previous commands which can be recalled or reused.         |
+
+---
+
+### ⚡ Tips for Power Users
+
+- Add aliases to `~/.bashrc` or `~/.zshrc` for persistence across sessions.
+- Use `history | grep ssh` to search previous SSH commands.
+- Combine logic: `mkdir test && cd test && touch file.txt`.
+- Use `CTRL + A` to go to start of line, `CTRL + E` to go to end of line.
+
+---
 
 ## 🛠️ Recommended Setup
 
@@ -368,13 +626,7 @@ linux-basics/
 └── images/                   # Screenshots & diagrams
 ```
 ---
-touch file.txt           # Create file
-mkdir mydir              # Create directory
-rm file.txt              # Delete file
-rm -r mydir              # Delete directory recursively
-cp file1 file2           # Copy file
-mv oldname newname       # Rename or move
-cat file.txt             # View file contents
+
 
 ---
 
