@@ -236,11 +236,14 @@ sudo systemctl status nginx
 ```
 
 ## 🔗 Useful Resources
-Ansible Docs
 
-Ansible Galaxy
+Here are some valuable references to help you dive deeper into Ansible and EC2 automation:
 
-Official Examples
+- 📚 [Ansible Documentation](https://docs.ansible.com/) – Official user guide and modules
+- 🌌 [Ansible Galaxy](https://galaxy.ansible.com/) – Community-contributed roles and collections
+- 🧾 [Ansible Official Examples](https://github.com/ansible/ansible-examples) – Real-world playbook examples
+- 🎥 [YouTube Hands-on Playlist](https://www.youtube.com/watch?v=Z6T2r3Xhk5k&list=PLdpzxOOAlwvIKMhk8WhzN) – Video tutorial series followed in this project (Reference)
+---
 
 💬 Author
 Made with ❤️ by a DevOps enthusiast learning real-world automation!
