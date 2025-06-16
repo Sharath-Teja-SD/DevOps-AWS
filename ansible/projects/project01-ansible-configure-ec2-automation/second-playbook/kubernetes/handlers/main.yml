@@ -1,0 +1,7 @@
+# handlers/main.yml
+
+# Handlers are triggered by tasks using "notify"
+- name: restart nginx
+  service:
+    name: nginx
+    state: restarted
