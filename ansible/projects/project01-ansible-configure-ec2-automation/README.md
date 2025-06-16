@@ -237,12 +237,18 @@ sudo systemctl status nginx
 
 ## 🔗 Useful Resources
 
-Here are some valuable references to help you dive deeper into Ansible and EC2 automation:
+Here are some references and learning materials that helped during this project:
 
-- 📚 [Ansible Documentation](https://docs.ansible.com/) – Official user guide and modules
-- 🌌 [Ansible Galaxy](https://galaxy.ansible.com/) – Community-contributed roles and collections
-- 🧾 [Ansible Official Examples](https://github.com/ansible/ansible-examples) – Real-world playbook examples
-- 🎥 [YouTube Hands-on Playlist](https://www.youtube.com/watch?v=Z6T2r3Xhk5k&list=PLdpzxOOAlwvIKMhk8WhzN) – Video tutorial series followed in this project (Reference)
+### 📘 Official Documentation & Examples
+- [Ansible Documentation](https://docs.ansible.com/)
+- [Ansible Galaxy (Community Roles)](https://galaxy.ansible.com/)
+- [Ansible Examples Repository (GitHub)](https://github.com/ansible/ansible-examples)
+
+### 🎥 YouTube Learning Series
+- [🔧 DevOps with Ansible - Playlist](https://www.youtube.com/playlist?list=PLdpzxOOAlwvIKMhk8WhzN1pYoJ1YU8Csa)
+- [🚀 EC2 Setup with Ansible (Video 1)](https://www.youtube.com/watch?v=I5_NF8nvACg&list=PLdpzxOOAlwvIKMhk8WhzN1pYoJ1YU8Csa&index=20)
+- [📁 Ansible Role Creation & Structure (Video 2)](https://www.youtube.com/watch?v=Z6T2r3Xhk5k&list=PLdpzxOOAlwvIKMhk8WhzN1pYoJ1YU8Csa&index=25)
+
 ---
 
 💬 Author
