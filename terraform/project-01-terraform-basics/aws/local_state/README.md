@@ -123,3 +123,99 @@ instance_public_ip = "13.233.111.101"
 ---
 
 ✨ Ready for use in solo testing, learning, or sandbox demos.
+
+---
+
+# 📄 Terraform File: `backend.tf` (Remote Backend Configuration for Local State Setup)
+
+This file configures the **remote backend** for Terraform using **AWS S3** and **DynamoDB**. It tells Terraform **where and how to store the state file** and how to handle **state locking** to avoid conflicts during collaborative operations.
+
+---
+
+## 🔧 Purpose
+
+- Configure **remote backend** for storing `.tfstate` file in an **S3 bucket**.
+- Enable **locking and consistency** using a **DynamoDB table**.
+- Separate state management from resource provisioning for cleaner architecture.
+
+---
+
+## 📦 File Location
+
+```bash
+DevOps-AWS/terraform/project-01-terraform-basics/aws/local_state/backend.tf
+```
+---
+## ⚙️ Backend Configuration
+```bash
+
+terraform {
+  backend "s3" {
+    bucket         = "211125365732-terraform-states"
+    key            = "dev/terraform.tfstate"
+    region         = "ap-south-1"
+    dynamodb_table = "terraform-lock"
+    encrypt        = true
+  }
+}
+```
+---
+### ✅ Explanation of Fields
+
+| Field           | Description                                                                                      |
+|-----------------|--------------------------------------------------------------------------------------------------|
+| `bucket`        | Name of the **S3 bucket** to store the remote state. Must be **globally unique**.               |
+| `key`           | Path (within the bucket) to the `.tfstate` file. Supports organizing different **environments**. |
+| `region`        | AWS region where the **backend resources** (S3 + DynamoDB) are located.                         |
+| `dynamodb_table`| Name of the **DynamoDB table** used for **state locking** to prevent race conditions.            |
+| `encrypt`       | Ensures the state file is stored **encrypted at rest**.                                          |
+
+---
+## 🧠 Why This Matters
+
+- Prevents **"double apply" issues** by locking the state file during runs.
+- Allows for **team collaboration** and **CI/CD pipelines** without conflict.
+- Ensures **secure, centralized, and consistent state management**.
+
+---
+
+## 🔒 Backend Resources Used
+
+This configuration depends on the following pre-created AWS resources:
+
+- ✅ **S3 Bucket**: `211125365732-terraform-states`
+- ✅ **DynamoDB Table**: `terraform-lock`
+
+> ⚠️ These must be created **before** running `terraform init` with this backend config.
+
+You can create them using the configuration provided in:
+
+```bash
+DevOps-AWS/terraform/project-01-terraform-basics/aws/remote_state/main.tf
+```
+---
+## 🧪 Usage Flow
+```bash
+
+cd aws/local_state
+terraform init     # Initializes with the configured remote backend
+terraform apply    # Applies and saves state remotely
+```
+> During init, Terraform will:
+Connect to the S3 bucket
+Check for existing state
+Lock the state using DynamoDB <
+
+
+---
+
+## 📌 Notes
+
+- 🔄 `terraform init` must be **re-run** after editing `backend.tf`.
+- 🔐 Never **hardcode secrets or credentials**; use `aws configure` or environment variables.
+- 🚫 Avoid committing:
+  - `.terraform/`
+  - `.terraform.lock.hcl`
+  - `.tfstate` and `.tfstate.backup` files  
+  to version control (add them to `.gitignore`).
+---
