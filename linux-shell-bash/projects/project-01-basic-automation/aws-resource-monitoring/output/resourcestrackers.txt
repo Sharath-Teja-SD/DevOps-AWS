@@ -1,0 +1,21 @@
+🔹 Print list of S3 Buckets
+
+🔹 Print list of EC2 Instance IDs
+i-0aa2c0fcc4c9c65e9
+
+🔹 Print list of Lambda Functions
+{
+  "Functions": []
+}
+
+🔹 Print list of IAM Users
+{
+  "Users": [
+    {
+      "UserName": "sharath",
+      ...
+    }
+  ]
+}
+
+✅ Cron job added: Script will run daily at 7:00 PM

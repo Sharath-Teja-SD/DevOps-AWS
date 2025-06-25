@@ -1,0 +1,10 @@
+# Sample Ansible Inventory File
+
+# You can group more if needed
+[webservers]
+192.168.1.xx ansible_user=ubuntu
+172.31.x.xxx
+
+[dbservers]
+192.168.1.xx ansible_user=ubuntu
+172.31.x.xxx

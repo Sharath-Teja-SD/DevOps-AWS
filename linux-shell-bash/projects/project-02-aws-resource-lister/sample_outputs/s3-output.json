@@ -1,0 +1,13 @@
+{
+  "Buckets": [
+    {
+      "Name": "my-app-logs",
+      "CreationDate": "2024-11-28T08:34:55.000Z"
+    },
+    {
+      "Name": "project-backups",
+      "CreationDate": "2023-07-10T12:20:11.000Z"
+    }
+  ]
+}
+

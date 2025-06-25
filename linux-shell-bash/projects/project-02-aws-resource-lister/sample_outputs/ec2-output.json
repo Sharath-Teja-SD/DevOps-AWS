@@ -1,0 +1,23 @@
+{
+  "Reservations": [
+    {
+      "Instances": [
+        {
+          "InstanceId": "i-0abc1234example",
+          "InstanceType": "t2.micro",
+          "State": {
+            "Name": "running"
+          },
+          "PublicIpAddress": "13.234.123.10",
+          "Tags": [
+            {
+              "Key": "Name",
+              "Value": "MyWebServer"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
