@@ -15,8 +15,11 @@ This project demonstrates how to deploy your **first Kubernetes application** us
 ---
 
 ## 📂 Project Structure
-
-
+```
+project-01-k8s-nginx-pod/
+├── pod.yml # 🧱 NGINX Pod definition
+└── README.md # 📘 Project explanation & deployment guide
+```
 ---
 
 ## 🧰 Prerequisites
@@ -32,3 +35,40 @@ This project demonstrates how to deploy your **first Kubernetes application** us
 ### 1. Start Minikube
 ```bash
 minikube start
+```
+---
+### 2. Apply Pod Definition
+```bash
+kubectl apply -f pod.yml
+```
+---
+## 3. Verify Pod
+```bash
+kubectl get pods
+kubectl describe pod nginx
+kubectl logs nginx
+```
+- ✔️ < kubectl get pods > – shows pod name, status, restarts, and age
+- ✔️ < kubectl describe pod > nginx – detailed info about the pod (IP, events, status, etc.)
+- ✔️ < kubectl logs nginx > – shows the container logs
+
+----
+
+### 4. Access Pod via Minikube SSH
+```bash
+
+minikube ssh
+curl 10.244.x.x   # Pod IP
+```
+You’ll see the default NGINX welcome page HTML.
+
+---
+## 5. Delete Pod
+```bash
+kubectl delete pod nginx
+```
+---
+
+🏁 Status
+✅ Project Completed
+📦 Pod deployed, verified, deleted successfully
