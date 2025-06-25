@@ -109,6 +109,45 @@ Tested on **Minikube**
 
 
 ---
+## 🧠 Learning & Objectives
+
+The purpose of this repository is to **learn by building**, and to master the key DevOps skills through hands-on implementation. Below are the core learning goals:
+
+--
+
+### ✅ Master Real-World DevOps Tools & Workflows
+- Work with industry-standard tools across the DevOps lifecycle.
+- Follow GitHub-driven project structure and workflow.
+
+
+### ☁️ Automate AWS Cloud Infrastructure
+- Use AWS CLI to manage and automate cloud resources.
+- Implement Infrastructure as Code (IaC) using Terraform and Ansible.
+
+
+### 🔁 Practice CI/CD with Jenkins & GitHub Actions
+- Build automated pipelines to streamline build, test, and deploy.
+- Use Jenkins and GitHub Actions for real-time CI/CD implementation.
+
+
+### 📦 Build & Deploy Containerized Applications
+- Dockerize applications and run them efficiently using containers.
+- Deploy to Kubernetes and learn core concepts like pods, YAML, and `kubectl`.
+
+### ⚙️ Provision & Configure with Ansible
+- Automate EC2 provisioning, package installs, system config, and SSH setup.
+- Use playbooks and roles for reusable automation.
+
+### 🗂️ Document & Showcase with GitHub Best Practices
+- Maintain clean, well-organized repositories with Markdown docs.
+- Add screenshots, folder structure, usage instructions, and credits.
+
+
+---
+
+> 🔥 _“Learn it. Build it. Automate it. Document it.”_  
+> This is not just a learning repo — it’s your **DevOps Career Launchpad** 🚀
+
 ---
 
 > Made with 💖 by **Sharath Teja**   
